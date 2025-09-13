@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>StudentRegistrationForm</title>
+<style>
+  /* Reset and base */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #1d8f19;
+    display: flex;
+    justify-content: center;
+    padding: 40px 15px;
+  }
+
+  /* Form container */
+  .registration-form {
+    background: #8d0956;
+    padding: 30px 40px;
+    max-width: 480px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 18px 25px;
+  }
+
+  /* Label styling */
+  label {
+    justify-self: end;
+    align-self: center;
+    font-weight: 600;
+  }
+
+  /* Input, select, password styling */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select {
+    width: 100%;
+    padding: 9px 12px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus,
+  select:focus {
+    border-color: #5086c0;
+  }
+
+  /* Gender radios container */
+  .gender-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-self: start;
+  }
+
+  .gender-group label {
+    font-weight: normal;
+    cursor: pointer;
+  }
+
+  /* Button container spans full width */
+  .button-container {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 15px;
+  }
+
+  button {
+    background-color: #007bff;
+    border: none;
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  /* Responsive: Stack labels and inputs on small screens */
+  @media (max-width: 600px) {
+    .registration-form {
+      grid-template-columns: 1fr;
+      gap: 12px 0;
+    }
+
+    label {
+      justify-self: start;
+    }
+
+    .button-container {
+      justify-self: stretch;
+    }
+  }
+</style>
+</head>
+<body>
+
+<form class="studentregistration"> 
+
+  <label for="fullname">Full Name:</label>
+  <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required />
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+  <label for="course">Course Selection:</label>
+  <select id="course" name="course" required>
+    <option value="" disabled selected>Select a course</option>
+    <option value="math">Mathematics</option>
+    <option value="science">Science</option>
+    <option value="history">History</option>
+  </select>
+
+  <label>Gender:</label>
+  <div class="gender-group" role="radiogroup" aria-labelledby="gender-label">
+    <label><input type="radio" name="gender" value="male" required /> Male</label>
+    <label><input type="radio" name="gender" value="female" /> Female</label>
+    <label><input type="radio" name="gender" value="other" /> Other</label>
+  </div>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" placeholder="Enter your password" required />
+
+  <label for="confirm-password">Confirm Password:</label>
+  <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required />
+
+  <div class="button-container">
+    <button type="submit">Register</button>
+  </div>
+
+</form>
+
+</body>
+</html>
