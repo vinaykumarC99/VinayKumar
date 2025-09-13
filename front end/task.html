@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>To-Do List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color:rgb(39, 172, 165);
+      padding: 10px;
+    }
+    h1 {
+      text-align: center;
+      color: #9820bd;
+    }
+    h2 {
+      text-align: center;
+      color: #b33333;
+    }
+    #list {
+      list-style-type: none;
+      padding: 0;
+    }
+    #list li {
+      background: #74b41f;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(114, 168, 52, 0.1);
+    }
+    #myInput {
+      width: calc(100% - 110px);
+      padding: 10px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    #add {
+      padding: 10px 20px;
+      border: none;
+      background-color: #28a745;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #add:hover {
+      background-color: #218838;
+    }
+    </style>
+</head>
+<body>
+    <H1> To Do List </H1>
+    <br><br>
+    <h2>These are your tasks to complete</h2>
+    <ul id="taskList"> </ul>
+    <input type="text" id="taskInput" placeholder="Enter new task">
+    <button id="addTask">Add Task</button>
+<script>
+$(document).ready(function(){
+   
+    $("#addTask").click(function(){
+  let task = $("#taskInput").val();
+  if(task !== ""){
+    $("#taskList").append(
+      `<li>${task}
+        <button id='done'>Complete</button>
+        <button class='delete'>Delete</button>
+      </li>`
+    );
+    $("#taskInput").val("");
+  }
+});
+
+// Mark as complete
+$("#taskList").on("click", "#done", function(){
+  $(this).parent().css("background-color","yellow");
+});
+
+// Delete
+$("#taskList").on("click", ".delete", function(){
+  $(this).parent().remove();
+});
+});
+</script>
+ </body>
+ </html>
